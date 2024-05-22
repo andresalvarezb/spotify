@@ -11,16 +11,15 @@ export class Track extends HTMLElement {
     }
 
     async loadSong() {
-        const url =
-            "https://spotify23.p.rapidapi.com/artist_singles/?id=2w9zwq3AktTeYYMuhMjju8&offset=0&limit=30";
+        const url = 'https://spotify23.p.rapidapi.com/artist_singles/?id=2w9zwq3AktTeYYMuhMjju8&offset=0&limit=5';
         const options = {
-            method: "GET",
+            method: 'GET',
             headers: {
-                "X-RapidAPI-Key":
-                    "4c5c9a271cmshf53f6258ac00718p119e72jsn0689e7c5319d",
-                "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-            },
+                'x-rapidapi-key': 'b0bd9d759bmshea9903d42541697p1f653ajsnde763a9f28ca',
+                'x-rapidapi-host': 'spotify23.p.rapidapi.com'
+            }
         };
+
         const response = await fetch(url, options);
         const {
             data: {
