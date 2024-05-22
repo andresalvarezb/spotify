@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/styles.css">
-    <script type="module" defer src="./src/js/components/Track.js"></script>
-    <script type="module" defer src="./src/js/components/NewMusic.js"></script>
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <div class="discover">
-            <div class="newMusic">
-                <new-music></new-music>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./src/css/styles.css" />
+        <script type="module" defer src="./src/js/components/Track.js"></script>
+        <script
+            type="module"
+            defer
+            src="./src/js/components/NewMusic.js"
+        ></script>
+        <script
+            type="module"
+            defer
+            src="./src/js/components/Reproductor.js"
+        ></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="discover">
+                <div class="newMusic">
+                    <new-music></new-music>
+                </div>
+                <div class="trackList trackList--discover">
+                    <!-- <track-list></track-list> -->
+                </div>
             </div>
-            <div class="trackList trackList--discover">
-                <!-- <track-list></track-list> -->
+            <div class="reproductor">
+                <mi-reproductor></mi-reproductor>
+            </div>
+            <div class="trackList">
+                <track-list></track-list>
             </div>
         </div>
-        <div class="reproductor"></div>
-        <div class="trackList">
-            <track-list></track-list>
-        </div>
-    </div>
-</body>
+    </body>
 </html>
