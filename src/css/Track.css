@@ -1,0 +1,54 @@
+.card {
+    margin: 10px;
+    padding: 0;
+}
+
+.cards {
+    background: white;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.cards h3 {
+    margin: 5px;
+    font-size: 15px;
+}
+
+.cards h5 {
+    margin: 0;
+    color: rgb(124, 124, 124);
+}
+
+.cards button {
+    background: none;
+    border: none;
+}
+
+.card button:hover {
+    cursor: pointer;
+}
+
+.cards .cards_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cards .cards_info .img {
+    height: 50px;
+    width: 50px;
+}
+
+.cards .cards_info .img img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+
+.cards .minutes_and_date {
+    padding-right: 10px;
+}
