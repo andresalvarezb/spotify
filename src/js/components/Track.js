@@ -1,23 +1,90 @@
+const styles = /*html */ `
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .card {
+    margin: 10px;
+    padding: 0;
+}
+
+.cards {
+    background: white;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.cards h3 {
+    margin: 5px;
+    font-size: 15px;
+}
+
+.cards h5 {
+    margin: 0;
+    color: rgb(124, 124, 124);
+}
+
+.cards button {
+    background: none;
+    border: none;
+}
+
+.card button:hover {
+    cursor: pointer;
+}
+
+.cards .cards_info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cards .cards_info .img {
+    height: 50px;
+    width: 50px;
+}
+
+.cards .cards_info .img img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+}
+
+.cards .minutes_and_date {
+    padding-right: 10px;
+}
+
+    </style>
+`;
+
 export class Track extends HTMLElement {
     songs = [];
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = /*html */ `
-            <link rel="stylesheet" href="./src/css/normalize.css">
-            <link rel="stylesheet" href="./src/css/bases.css">
-            <link rel="stylesheet" href="./src/css/Track.css">
-        `;
+        this.shadowRoot.innerHTML = styles
     }
 
     async loadSong() {
-        const url = 'https://spotify23.p.rapidapi.com/artist_singles/?id=2w9zwq3AktTeYYMuhMjju8&offset=0&limit=5';
+        const url =
+            "https://spotify23.p.rapidapi.com/artist_singles/?id=2w9zwq3AktTeYYMuhMjju8&offset=0&limit=10";
         const options = {
-            method: 'GET',
+            method: "GET",
             headers: {
-                'x-rapidapi-key': 'b0bd9d759bmshea9903d42541697p1f653ajsnde763a9f28ca',
-                'x-rapidapi-host': 'spotify23.p.rapidapi.com'
-            }
+                "x-rapidapi-key":
+                    "b0bd9d759bmshea9903d42541697p1f653ajsnde763a9f28ca",
+                "x-rapidapi-host": "spotify23.p.rapidapi.com",
+            },
         };
 
         const response = await fetch(url, options);
@@ -37,8 +104,10 @@ export class Track extends HTMLElement {
         await this.loadSong();
         this.shadowRoot.innerHTML += /*html */ `
             <div>
-                ${this.songs.map((song) => {
-                    const { releases: { items }} = song;
+                ${(this.songs.map((song) => {
+                    const {
+                        releases: { items },
+                    } = song;
                     return /*html */ `
                             <div class="card">
                                 <div class="cards">
@@ -59,7 +128,7 @@ export class Track extends HTMLElement {
                                 </div>
                             </div>  
                         `;
-                })}
+                })).join('')}
             </div>
         `;
     }

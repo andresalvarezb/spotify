@@ -1,12 +1,102 @@
+const styles  = /*html */`
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .header {
+            display: flex;
+            height: 5vh;
+            justify-content: center;
+            align-items: center;
+        }
+        .UserOptions {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .songName {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .mediaOptions {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-left: 3vh;
+            padding-right: 3vh;
+            height: 25vh;
+            justify-content: space-around;
+        }
+
+        .musicTime {
+            display: flex;
+            justify-content: space-between;
+        }
+        .progressMusic {
+            display: flex;
+            justify-content: center;
+        }
+        .progressMusic progress {
+            width: 100%;
+            height: 0.5vh;
+            background-color: #ddd;
+        }
+        progress::-webkit-progress-value {
+            background-color: #27ae60;
+        }
+        progress::-webkit-progress-bar {
+            background-color: #ececec;
+        }
+        .mediaControl {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .volumeControl {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .volumeControl progress {
+            width: 50%;
+            height: 0.3vh;
+            background-color: #ddd;
+        }
+        .deviceOutput {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .deviceOutput div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            background: #6fcf9752;
+            width: 18vh;
+            border-radius: 1vh;
+        }
+        .SongImage {
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
+`
+
+
 export class Reproductor extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = /*html */ `
-        <link rel="stylesheet" href="./src/css/normalize.css">
-        <link rel="stylesheet" href="./src/css/bases.css">
-        <link rel="stylesheet" href="./src/css/Reproductor.css">
-        `;
+        this.shadowRoot.innerHTML = styles
     }
 
     connectedCallback() {
@@ -18,7 +108,7 @@ export class Reproductor extends HTMLElement {
         </header>
         <div class="SongInfo">
             <div class="SongImage">
-                <img src="src/storage/img/image 20.png" alt="">
+                <img src="./src/storage/image 20.png" alt="">
             </div>
             <div class="UserOptions">
                 <div> <box-icon name='plus' color='#9bd8b5'></box-icon> </div>

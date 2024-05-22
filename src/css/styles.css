@@ -1,3 +1,37 @@
 @import url(normalize.css);
 @import url(bases.css);
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 0.5rem;
+    height: 100vh;
+    overflow: hidden;
+}
+.discover {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+.reproductor {
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.newMusic {
+    flex: 1;
+}
+.trackList--discover {
+    flex:1;
+}
+.trackList {
+    overflow-y: scroll;
+}
+.trackList::-webkit-scrollbar {
+    display: none;
+}

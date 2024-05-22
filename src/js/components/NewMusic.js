@@ -1,13 +1,73 @@
+const styles  = /*html */`
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .container {
+            overflow-x: scroll;
+            height: 345px;
+            width: 315px;
+            display:grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 1rem;
+        }
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+        .boxMusic {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            cursor: pointer;
+        }
+        .boxMusic__img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 98%;
+            height: 65%;
+            border-radius: 10px;
+        }
+        .boxMusic__text {
+            width: 95%;
+            height: 25%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            padding: 0 5px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow-y: hidden;
+        }
+        .boxMusic__text::-webkit-scrollbar {
+            display: none;
+        }
+        .boxMusic__text p {
+            font-size: 0.8em;
+            text-transform: capitalize;
+            font-weight: 600;
+        }
+        .boxMusic__text p small {
+            text-transform: capitalize;
+            font-weight: 480;
+            color: #4f4f4f;
+        }
+    </style>
+`
+
 export class NewMusic extends HTMLElement {
     dataMusic=[]
     constructor() {
         super();
         this.attachShadow({ mode: "open" });
-        this.shadowRoot.innerHTML = /*html */ `
-        <link rel="stylesheet" href="./src/css/normalize.css">
-        <link rel="stylesheet" href="./src/css/bases.css">
-        <link rel="stylesheet" href="./src/css/NewMusic.css">
-        `;
+        this.shadowRoot.innerHTML = styles
     }
 
     async getData() {
@@ -36,9 +96,9 @@ export class NewMusic extends HTMLElement {
 
     async connectedCallback() {
         await this.getData()
-        this.shadowRoot.innerHTML = /*html */ `
+        this.shadowRoot.innerHTML += /*html */ `
             <div class="container">
-                    ${this.dataMusic.map(
+                    ${(this.dataMusic.map(
                         (musicItem) => /*html */ `
                             <div class="boxMusic">
                                 <img src=${musicItem.album.images[1].url} class="boxMusic__img" />
@@ -50,7 +110,7 @@ export class NewMusic extends HTMLElement {
                                 </div>
                             </div>
                         `
-                    )}
+                    )).join('')}
             </div>
         `;
     }
