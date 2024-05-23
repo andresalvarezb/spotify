@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "live-server --host=172.16.101.146 --port=5174"
+    "dev": "live-server --host=172.16.101.146 --port=5467"
   },
   "keywords": [],
   "author": "",
